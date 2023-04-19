@@ -29,6 +29,7 @@
                         <div class="alert alert-success" role="alert">
                             <?php echo $password; ?>
                         </div>
+                        <a class="btn btn-success" href="index.php">< Indietro</a>
                     </div>
                 </div>
             </div>

@@ -44,6 +44,13 @@
                 </div>
             </div>
             <div class="row">
+                <?php if(empty($_GET['pswLength']) && isset($_GET['pswLength'])){ ?>
+                    <div class="alert alert-danger" role="alert">
+                        Indica la lunghezza della password.
+                    </div>
+                <?php } ?>
+            </div>
+            <div class="row">
                 <div class="col-8 mx-auto">
                 <div class="card bg-light" data-bs-theme="light">
                     <form action="index.php" method="GET">
