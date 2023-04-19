@@ -1,5 +1,7 @@
 <?php 
 
+    session_start();
+    
     require_once __DIR__ .'/functions.php';
 
     $dictionary = [
@@ -12,6 +14,13 @@
         'symbols' => ['@','£','€','%','#','§']
 
     ];
+
+    if(!empty($_GET['pswLength'])){
+
+        $_SESSION['password'] = pswGen($dictionary, $_GET['pswLength'], $_GET['radioRepete'] == '1' ? true:false , isset($_GET['checkLetters']) ? true: false,isset($_GET['checkSymbols']) ? true: false,isset($_GET['checkNumbers']) ? true: false);
+        header('Location: result.php');
+
+    }
 
 ?>
 
@@ -34,16 +43,6 @@
                     <h3>Genera una password sicura</h3>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-8 mx-auto">
-                <?php if(!empty($_GET['pswLength'])){ ?>
-                    <div class="alert alert-light" role="alert">
-                        <?php echo pswGen($dictionary, $_GET['pswLength'], $_GET['radioRepete'] == '1' ? true:false , isset($_GET['checkLetters']) ? true: false,isset($_GET['checkSymbols']) ? true: false,isset($_GET['checkNumbers']) ? true: false) ?>
-                    </div>
-                <?php }?>
-                </div>
-            </div>
-
             <div class="row">
                 <div class="col-8 mx-auto">
                 <div class="card bg-light" data-bs-theme="light">

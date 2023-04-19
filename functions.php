@@ -1,6 +1,6 @@
 <?php
 
-/**
+    /**
      * Funzione per la generazione di password casuali
      */
 
